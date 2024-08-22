@@ -3,4 +3,4 @@ from rest_framework.response import Response
 
 @api_view(['POST'])
 def send_data(request):
-    return Response({'value': 123})
+    return Response({'value': request.POST.get('value')})
