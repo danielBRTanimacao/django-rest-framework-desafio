@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Enviar dados</title>
+        <style>
+            body {
+                padding: 0;
+                margin: 0;
+                font-family: system-ui, -apple-system, BlinkMacSystemFont,
+                    "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+                    "Helvetica Neue", sans-serif;
+                display: flex;
+                height: 100dvh;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+            }
+            form {
+                display: flex;
+                gap: 7px;
+                flex-direction: column;
+            }
+            input {
+                padding: 10px 15px;
+                border-radius: 10px;
+                border: 1px solid rgb(173, 173, 173);
+            }
+            button {
+                cursor: pointer;
+                padding: 10px 15px;
+                border: none;
+                background-color: rgb(25, 25, 122);
+                font-weight: 700;
+                color: white;
+                border-radius: 25px;
+            }
+            button:hover {
+                background-color: rgb(29, 14, 88);
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Enviar dados</h1>
+        <form method="post" id="formData">
+            <input type="text" name="value" id="valueId" autofocus />
+            <button type="submit">Enviar</button>
+        </form>
+    </body>
+    <script>
+        document
+            .getElementById("formData")
+            .addEventListener("submit", function (event) {
+                event.preventDefault();
+
+                let formData = new FormData(this);
+                let data = {};
+                formData.forEach((value, key) => {
+                    data[key] = value;
+                });
+
+                fetch("/api/send/", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(data)
+                })
+                    .then((response) => response.json())
+                    .then((data) => {
+                        console.log("Sucesso:", data);
+                    })
+                    .catch((error) => {
+                        console.log("Erro:", error);
+                    });
+            });
+    </script>
+</html>
