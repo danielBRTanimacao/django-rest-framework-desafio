@@ -9,5 +9,5 @@ class User(AbstractUser):
         verbose_name_plural = 'Users'
 
     amount = models.DecimalField(max_digits=10, decimal_places=2, default=Decimal('0.00'))
-    win_game = models.BooleanField()
+    win_game = models.BooleanField(default=False)
     email = models.EmailField(unique=True)
