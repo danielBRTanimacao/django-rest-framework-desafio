@@ -7,4 +7,8 @@ def send_data(request):
 
 @api_view(['GET'])
 def create_user(request):
-    return Response({'response': 'funciona'})
+    return Response({'response': 'criando'})
+
+@api_view(['GET'])
+def login(request):
+    return Response({'response': 'Entrando'})
