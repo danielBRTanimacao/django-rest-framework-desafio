@@ -11,7 +11,7 @@ class Base(models.Model):
     active = models.BooleanField(default=True)
 
 
-class Course(models.Model):
+class Course(Base):
     title = models.CharField(max_length=255)
     url = models.URLField(unique=True)
 
@@ -20,7 +20,7 @@ class Course(models.Model):
 
 
 class Assessment(Base):
-    course = models.ForeignKey(Course, related_name="assessment", on_delete=models.CASCADE, unique=True)
+    course = models.OneToOneField(Course, related_name="assessment", on_delete=models.CASCADE, unique=True)
     name = models.CharField(max_length=255)
     email = models.EmailField(unique=True)
     comments = models.TextField(blank=True)

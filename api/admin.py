@@ -1,13 +1,20 @@
 from django.contrib import admin
-from api.models import User
+from api.models import Course, Assessment
 
-# Register your models here.
-@admin.register(User)
-class UserAdmin(admin.ModelAdmin):
-    list_display = ('id', 'username', 'email',)
-    list_display_links = ('id', 'username',)
+@admin.register(Course)
+class CourseAdmin(admin.ModelAdmin):
+    list_display = ('id', 'title', 'url',)
+    list_display_links = ('id', 'title',)
     ordering = '-id',
-    search_fields = ('id', 'username',)
+    search_fields = ('id', 'title',)
     list_per_page = 10
     list_max_show_all = 150
-    list_display_links = 'id', 'username',
+
+@admin.register(Assessment)
+class AssessmentAdmin(admin.ModelAdmin):
+    list_display = ('id', 'course', 'name', 'email',)
+    list_display_links = ('id', 'course', 'name',)
+    ordering = '-id',
+    search_fields = ('id', 'course', 'name',)
+    list_per_page = 10
+    list_max_show_all = 150
