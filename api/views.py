@@ -22,4 +22,10 @@ class AssessmentAPiView(APIView):
         assessments = Assessment.objects.all()
         serializer = AssessmentSerializers(assessments, many=True)
         return Response(serializer.data)
+    
+    def post(self, request):
+        serializer = AssessmentSerializers(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
 
