@@ -9,6 +9,12 @@ class CourseAPiView(APIView):
         courses = Course.objects.all()
         serializer = CourseSerializers(courses, many=True)
         return Response(serializer.data)
+    
+    def post(self, request):
+        serializer = CourseSerializers(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 
 class AssessmentAPiView(APIView):
