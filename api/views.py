@@ -1,30 +1,30 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from .models import Course, Assessment
-from .serializers import CourseSerializers, AssessmentSerializers
+from .models import Student, StudentNote
+from .serializers import StudentSerializers, StudentNotesSerializers
 
-class CourseAPiView(APIView):
+class StudentAPiView(APIView):
     def get(self, request):
-        courses = Course.objects.all()
-        serializer = CourseSerializers(courses, many=True)
+        student = Student.objects.all()
+        serializer = StudentSerializers(student, many=True)
         return Response(serializer.data)
     
     def post(self, request):
-        serializer = CourseSerializers(data=request.data)
+        serializer = StudentSerializers(data=request.data)
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 
-class AssessmentAPiView(APIView):
+class StudentNotesAPiView(APIView):
     def get(self, request):
-        assessments = Assessment.objects.all()
-        serializer = AssessmentSerializers(assessments, many=True)
+        student_notes = StudentNote.objects.all()
+        serializer = StudentNotesSerializers(student_notes, many=True)
         return Response(serializer.data)
     
     def post(self, request):
-        serializer = AssessmentSerializers(data=request.data)
+        serializer = StudentNotesSerializers(data=request.data)
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)

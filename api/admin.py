@@ -1,20 +1,20 @@
 from django.contrib import admin
-from api.models import Course, Assessment
+from api.models import Student, StudentNote
 
-@admin.register(Course)
-class CourseAdmin(admin.ModelAdmin):
-    list_display = ('id', 'title', 'url',)
-    list_display_links = ('id', 'title',)
+@admin.register(Student)
+class StudentAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name', 'register_number', 'school_serie',)
+    list_display_links = ('id', 'name', 'register_number',)
     ordering = '-id',
-    search_fields = ('id', 'title',)
+    search_fields = ('id', 'name', 'register_number',)
     list_per_page = 10
     list_max_show_all = 150
 
-@admin.register(Assessment)
-class AssessmentAdmin(admin.ModelAdmin):
-    list_display = ('id', 'course', 'name', 'email',)
-    list_display_links = ('id', 'course', 'name',)
+@admin.register(StudentNote)
+class StudentNotesAdmin(admin.ModelAdmin):
+    list_display = ('id', 'owner', 'first_semester',)
+    list_display_links = ('id', 'owner', 'first_semester',)
     ordering = '-id',
-    search_fields = ('id', 'course', 'name',)
+    search_fields = ('id', 'owner', )
     list_per_page = 10
     list_max_show_all = 150
