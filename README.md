@@ -29,7 +29,7 @@ python manage.py runserver
 
 <div style="display: flex; align-items: center; gap: 15px;">
 <p>
-    Para testar as rotas pode-se usar o <a href="postman.com">POSTMAN</a>
+    Para testar as rotas use o <a href="postman.com">POSTMAN</a>
 </p>
 
 [![My Skills](https://skillicons.dev/icons?i=postman&theme=dark)](https://skillicons.dev)
