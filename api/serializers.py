@@ -16,3 +16,9 @@ class StudentNotesSerializers(serializers.ModelSerializer):
         model = StudentNote
         exclude = ['id']
 
+
+class StudentNotesSerializers(serializers.ModelSerializer):
+    class Meta:
+        model = StudentNote
+        exclude = ['id', 'owner']
+
