@@ -10,4 +10,5 @@ def sum_return_note_semester(notes: list[float]) -> float:
     validate_list(notes)
     return sum(notes) / 4
 
-print(sum_return_note_semester([10, 10, 10, 10]))
+if __name__ == "__main__":
+    print(sum_return_note_semester([10, 10, 10, 10]))
