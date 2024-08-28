@@ -13,7 +13,6 @@ class Student(models.Model):
         return f'{self.name} registro {self.register_number}'
 
 
-
 class StudentNote(models.Model):
     owner = models.OneToOneField(Student, on_delete=models.CASCADE)
 
