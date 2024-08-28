@@ -17,7 +17,7 @@ class StudentNotesSerializers(serializers.ModelSerializer):
         exclude = ['id']
 
 
-class StudentNotesSerializers(serializers.ModelSerializer):
+class UpdateStudentNotesSerializers(serializers.ModelSerializer):
     class Meta:
         model = StudentNote
         exclude = ['id', 'owner']
