@@ -110,7 +110,9 @@
                 <div>
                     <label for="schoolSerieId">Escolha estudante:</label>
                     <select name="owner" id="ownerID">
-                        <option value="test">teste</option>
+                        {% for infos in infos_student %}
+                            <option value="{{infos.owner.id}}">{{infos.owner.name}}</option>
+                        {% endfor %}
                     </select>
                     <button class="btn">Pegar notas alunos</button>
                 </div>
