@@ -12,41 +12,136 @@
                 margin: 0;
                 padding: 0;
             }
+            h1 {
+                color: #f0f7f4;
+            }
             main {
-                padding: 10px;
+                height: 100dvh;
                 display: flex;
-                justify-content: space-around;
             }
             form {
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                background-color: #058c42;
                 display: flex;
                 flex-direction: column;
-                gap: 5px;
+                gap: 12px;
+            }
+            .form-2 {
+                background-color: #00b4d8;
             }
             input {
-                padding: 8px 10px;
+                padding: 12px 38px;
                 border-radius: 10px;
-                border: 2px solid rgb(142, 142, 142);
+                border: 2px solid #344e41;
+            }
+            input.input {
+                border: 2px solid #03045e;
             }
             button {
-                padding: 6px 9px;
+                cursor: pointer;
+                font-weight: 700;
+                padding: 14px 68px;
                 border: none;
                 color: white;
-                background-color: rgb(33, 80, 141);
+                background-color: #04471c;
+                border-radius: 20px;
+            }
+            button.btn {
+                background-color: #0077b6;
+            }
+            button.btn:hover {
+                background-color: #03045e;
+            }
+            button:hover {
+                transition: background-color 0.2s ease-in-out;
+                background-color: #0d2818;
+            }
+            label {
+                color: white;
+            }
+            form div {
+                display: flex;
+                gap: 2px;
+                flex-direction: column;
+            }
+            select {
+                margin: 3px 0;
+                padding: 4px 0;
             }
         </style>
     </head>
     <body>
         <main>
             <form action="#" method="post">
-                <h1>Update notas</h1>
-                <input type="text" required />
-                <button type="submit">Enviar</button>
-            </form>
-            <form action="#" method="post">
                 <h1>Criar estudante</h1>
-                <input type="text" required />
-                <button type="submit">Enviar</button>
+                <div>
+                    <label for="nameId">Nome:</label>
+                    <input type="text" name="name" id="nameId" required />
+                </div>
+                <div>
+                    <label for="emailId">Email:</label>
+                    <input type="email" name="email" id="emailId" required />
+                </div>
+                <div>
+                    <label for="registerNumberId">Número de matricula:</label>
+                    <input
+                        type="number"
+                        name="register_number"
+                        id="registerNumberId"
+                        required
+                    />
+                </div>
+                <div>
+                    <label for="schoolSerieId">Serie escolar:</label>
+                    <input
+                        type="number"
+                        name="school_serie"
+                        id="schoolSerieId"
+                        required
+                    />
+                </div>
+                <button type="submit">CRIAR</button>
+            </form>
+
+            <form class="form-2" action="#" method="post">
+                <h1>Update notas</h1>
+                <div>
+                    <label for="schoolSerieId">Escolha estudante:</label>
+                    <select name="owner" id="ownerID">
+                        <option value="test">teste</option>
+                    </select>
+                    <button class="btn">Pegar notas alunos</button>
+                </div>
+                <div>
+                    <label for="schoolSerieId">Escolha semestre:</label>
+                    <select name="semester" id="semesterId">
+                        <option value="first_semester">
+                            Primeiro semestre
+                        </option>
+                        <option value="first_semester">Segundo semestre</option>
+                        <option value="first_semester">
+                            Terceiro semestre
+                        </option>
+                        <option value="first_semester">Quarto semestre</option>
+                    </select>
+                    <button class="btn">Pegar notas semestres</button>
+                </div>
+
+                <div>
+                    <label for="NSemesterId">N semestre:</label>
+                    <input
+                        class="input"
+                        type="number"
+                        name="n_semester"
+                        id="NSemesterId"
+                        required
+                    />
+                </div>
+                <button class="btn" type="submit">UPDATE</button>
             </form>
         </main>
     </body>
+    <script></script>
 </html>
