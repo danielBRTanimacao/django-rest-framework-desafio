@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -105,7 +106,8 @@
                 <button type="submit">CRIAR</button>
             </form>
 
-            <form class="form-2" action="#" method="post">
+            <form class="form-2" method="post">
+                {% csrf_token %}
                 <h1>Update notas</h1>
                 <div>
                     <label for="schoolSerieId">Escolha estudante:</label>
@@ -114,7 +116,7 @@
                             <option value="{{infos.owner.id}}">{{infos.owner.name}}</option>
                         {% endfor %}
                     </select>
-                    <button class="btn">Pegar notas alunos</button>
+                    <button type="button" class="btn">Pegar notas alunos</button>
                 </div>
                 <div>
                     <label for="schoolSerieId">Escolha semestre:</label>
@@ -128,7 +130,7 @@
                         </option>
                         <option value="first_semester">Quarto semestre</option>
                     </select>
-                    <button class="btn">Pegar notas semestres</button>
+                    <button type="button" class="btn">Pegar notas semestres</button>
                 </div>
 
                 <div>
@@ -145,5 +147,5 @@
             </form>
         </main>
     </body>
-    <script></script>
+    <script src="{% static "js/index.js" %}"></script>
 </html>
