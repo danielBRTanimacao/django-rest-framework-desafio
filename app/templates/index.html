@@ -155,7 +155,9 @@
     <script>
         const getNotesStudents = document.querySelector("#getNotesStudents");
         getNotesStudents.addEventListener("click", (event) => {
-            fetch("http://127.0.0.1:8000/api/estudante/").then((response) => {
+            fetch("http://127.0.0.1:8000/api/estudante/", {
+                method: "GET"
+            }).then((response) => {
                 response.json();
             });
         });
